@@ -6,11 +6,11 @@ Book Hashtag là một ứng dụng/thư viện giúp quản lý và tạo hasht
 
 ## Tính năng
 
-- 📖 Tạo hashtag tự động cho sách dựa trên thể loại, tác giả, và nội dung
-- 🔍 Tìm kiếm sách thông qua hashtag
-- 📊 Thống kê và phân tích hashtag phổ biến
-- 🏷️ Quản lý danh sách hashtag cá nhân
-- 📱 Giao diện thân thiện với người dùng
+-  Tạo hashtag tự động cho sách dựa trên thể loại, tác giả, và nội dung
+-  Tìm kiếm sách thông qua hashtag
+-  Thống kê và phân tích hashtag phổ biến
+-  Quản lý danh sách hashtag cá nhân
+-  Giao diện thân thiện với người dùng
 
 ## Cài đặt
 
@@ -194,4 +194,4 @@ Dự án này được cấp phép dưới [MIT License](LICENSE).
 
 ---
 
-⭐ Nếu dự án hữu ích, hãy cho chúng tôi một star trên GitHub!
+ Nếu dự án hữu ích, hãy cho chúng tôi một star trên GitHub!
