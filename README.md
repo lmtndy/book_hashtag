@@ -1,197 +1,165 @@
-# Book Hashtag
+Book Hashtag
+Description
+Book Hashtag is an application/library designed to manage and generate hashtags for books, assisting users in categorizing, searching, and sharing book-related information through hashtags.
+Features
 
-## Mô tả
+Automatically generate hashtags for books based on genre, author, and content
+Search for books using hashtags
+Analyze and display statistics for popular hashtags
+Manage personal hashtag lists
+User-friendly interface
 
-Book Hashtag là một ứng dụng/thư viện giúp quản lý và tạo hashtag cho sách, hỗ trợ người dùng trong việc phân loại, tìm kiếm và chia sẻ thông tin về sách thông qua hashtag.
+Installation
+System Requirements
 
-## Tính năng
+Python 3.8+
+Node.js 14+ (if frontend is included)
+Git
 
--  Tạo hashtag tự động cho sách dựa trên thể loại, tác giả, và nội dung
--  Tìm kiếm sách thông qua hashtag
--  Thống kê và phân tích hashtag phổ biến
--  Quản lý danh sách hashtag cá nhân
--  Giao diện thân thiện với người dùng
+Installation Instructions
 
-## Cài đặt
+Clone the repository:
 
-### Yêu cầu hệ thống
-- Python 3.8+
-- Node.js 14+ (nếu có frontend)
-- Git
-
-### Hướng dẫn cài đặt
-
-1. Clone repository:
-```bash
 git clone https://github.com/lmtndy/book_hashtag.git
 cd book_hashtag
-```
 
-2. Tạo môi trường ảo:
-```bash
+
+Create a virtual environment:
+
 python -m venv venv
-source venv/bin/activate  # Trên Windows: venv\Scripts\activate
-```
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-3. Cài đặt dependencies:
-```bash
+
+Install dependencies:
+
 pip install -r requirements.txt
-```
 
-4. Cấu hình database (nếu có):
-```bash
+
+Configure the database (if applicable):
+
 python manage.py migrate
-```
 
-5. Chạy ứng dụng:
-```bash
+
+Run the application:
+
 python main.py
-```
 
-## Sử dụng
-
-### Tạo hashtag cho sách
-
-```python
+Usage
+Generating Hashtags for Books
 from book_hashtag import BookHashtagGenerator
 
 generator = BookHashtagGenerator()
 book_info = {
-    "title": "Tên sách",
-    "author": "Tác giả",
-    "genre": "Thể loại",
-    "description": "Mô tả sách"
+    "title": "Book Title",
+    "author": "Author Name",
+    "genre": "Genre",
+    "description": "Book Description"
 }
 
 hashtags = generator.generate_hashtags(book_info)
 print(hashtags)
-# Output: ['#tiểu_thuyết', '#việt_nam', '#tình_yêu', '#văn_học_đương_đại']
-```
+# Output: ['#novel', '#vietnamese', '#love', '#contemporary_literature']
 
-### Tìm kiếm sách theo hashtag
-
-```python
+Searching Books by Hashtag
 from book_hashtag import BookSearch
 
 searcher = BookSearch()
-results = searcher.search_by_hashtag("#tiểu_thuyết")
+results = searcher.search_by_hashtag("#novel")
 print(results)
-```
 
-## API Documentation
-
-### Endpoints
-
-#### `POST /api/hashtags/generate`
-Tạo hashtag cho sách
-
-**Request Body:**
-```json
+API Documentation
+Endpoints
+POST /api/hashtags/generate
+Generate hashtags for a book
+Request Body:
 {
-  "title": "Tên sách",
-  "author": "Tác giả", 
-  "genre": "Thể loại",
-  "description": "Mô tả"
+  "title": "Book Title",
+  "author": "Author Name",
+  "genre": "Genre",
+  "description": "Description"
 }
-```
 
-**Response:**
-```json
+Response:
 {
   "hashtags": ["#tag1", "#tag2", "#tag3"],
   "confidence": 0.85
 }
-```
 
-#### `GET /api/books/search?hashtag={hashtag}`
-Tìm kiếm sách theo hashtag
-
-**Response:**
-```json
+GET /api/books/search?hashtag={hashtag}
+Search for books by hashtag
+Response:
 {
   "books": [
     {
       "id": 1,
-      "title": "Tên sách",
-      "author": "Tác giả",
+      "title": "Book Title",
+      "author": "Author Name",
       "hashtags": ["#tag1", "#tag2"]
     }
   ],
   "total": 1
 }
-```
 
-## Cấu trúc thư mục
-
-```
+Project Structure
 book_hashtag/
 ├── src/
-│   ├── models/          # Các model dữ liệu
-│   ├── services/        # Logic xử lý chính
+│   ├── models/          # Data models
+│   ├── services/        # Core processing logic
 │   ├── api/            # API endpoints
-│   └── utils/          # Utilities và helpers
+│   └── utils/          # Utilities and helpers
 ├── tests/              # Test cases
-├── docs/               # Tài liệu
+├── docs/               # Documentation
 ├── requirements.txt    # Python dependencies
-├── config.py          # Cấu hình ứng dụng
+├── config.py          # Application configuration
 └── main.py           # Entry point
-```
 
-## Đóng góp
+Contributing
+We welcome all contributions! Please follow these steps:
 
-Chúng tôi hoan nghênh mọi đóng góp! Vui lòng:
+Fork the repository
+Create a feature branch (git checkout -b feature/amazing-feature)
+Commit your changes (git commit -m 'Add amazing feature')
+Push to the branch (git push origin feature/amazing-feature)
+Create a Pull Request
 
-1. Fork repository
-2. Tạo feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Tạo Pull Request
+Contribution Guidelines
 
-### Quy tắc đóng góp
-- Viết test cho code mới
-- Tuân thủ coding style hiện tại
-- Cập nhật documentation nếu cần
-- Đảm bảo tất cả test pass
+Write tests for new code
+Follow the existing coding style
+Update documentation if necessary
+Ensure all tests pass
 
-## Testing
-
-Chạy test:
-```bash
+Testing
+Run tests:
 python -m pytest tests/
-```
 
-Chạy test với coverage:
-```bash
+Run tests with coverage:
 python -m pytest --cov=src tests/
-```
 
-## Giấy phép
+License
+This project is licensed under the MIT License.
+Contact
 
-Dự án này được cấp phép dưới [MIT License](LICENSE).
+Author: lmtndy
+Email: lamtanduy1605@gmail.com
+Issues: GitHub Issues
 
-## Liên hệ
+Roadmap
 
-- Tác giả: [lmtndy](https://github.com/lmtndy)
-- Email: lamtanduy1605@gmail.com
-- Issues: [GitHub Issues](https://github.com/lmtndy/book_hashtag/issues)
+ Integrate AI for smarter hashtag generation
+ Support multiple languages
+ Develop a mobile app
+ Integrate with popular book platforms
+ Implement API rate limiting
+ Add a caching system
 
-## Roadmap
+Changelog
+v1.0.0 (2025-01-XX)
 
-- [ ] Tích hợp AI để tạo hashtag thông minh hơn
-- [ ] Hỗ trợ nhiều ngôn ngữ
-- [ ] Mobile app
-- [ ] Tích hợp với các nền tảng sách phổ biến
-- [ ] API rate limiting
-- [ ] Caching system
+Initial release
+Basic hashtag generation feature
+Basic API endpoints
+Simple web interface
 
-## Changelog
 
-### v1.0.0 (2025-01-XX)
-- Phiên bản đầu tiên
-- Tính năng tạo hashtag cơ bản
-- API endpoints cơ bản
-- Web interface đơn giản
-
----
-
- Nếu dự án hữu ích, hãy cho chúng tôi một star trên GitHub!
+If you find this project useful, please give us a star on GitHub!
