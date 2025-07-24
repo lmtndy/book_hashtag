@@ -172,7 +172,7 @@ Dự án này được cấp phép dưới [MIT License](LICENSE).
 ## Liên hệ
 
 - Tác giả: [lmtndy](https://github.com/lmtndy)
-- Email: your.email@example.com
+- Email: lamtanduy1605@gmail.com
 - Issues: [GitHub Issues](https://github.com/lmtndy/book_hashtag/issues)
 
 ## Roadmap
